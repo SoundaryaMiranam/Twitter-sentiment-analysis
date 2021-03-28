@@ -4,6 +4,7 @@ pip install textblob
 
 import pandas as pd
 import re
+from wordcloud import WordCloud 
 import matplotlib.pyplot as plt
 import seaborn as sns
 import tweepy 
@@ -91,6 +92,13 @@ sns.set_style('whitegrid')
 plt.title("Sentiment analysis")
 plt.xlabel("Polarity")
 plt.ylabel("Subjectivity")
+plt.show()
+
+#Plotting wordcloud  
+allwords = ''.join([tweets for tweets in df['Tweets']]) 
+wordcloud = WordCloud(width = 500, height = 300, random_state = 0, max_font_size =200).generate(allwords)
+plt.imshow(wordcloud, interpolation= "bilinear")
+plt.axis('off')
 plt.show()
 
 #caluclating the precentages
