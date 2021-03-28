@@ -1,8 +1,8 @@
-#PURPOSE
+# PURPOSE
 It helps you monitor and understand people's emotions and the way they are feeling on Twitter.Sentiment analysis involves classifying opinions in text into categories like "positive" or "negative" or "neutral".
 
 # OVERVIEW
-#Twitter API
+# Twitter API
 1. Register for the Twitter API https://apps.twitter.com/
 2. Create an app  to generate various keys associated with the API. 
 
