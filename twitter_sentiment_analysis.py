@@ -79,12 +79,15 @@ df['Analysis'] = df['Polarity'].apply(getanalysis)
 df.head()
 
 #Ploting the sentiment analysis
-
-sns.set_style('whitegrid')
-plt.figure(figsize=(8,8))
-for i in range(0, df.shape[0]):
-   plt.scatter(df['Polarity'][i], df['Subjectivity'][i], color = 'Blue')
-
+for index,row in df.iterrows():
+    if row['Analysis'] == 'Positive':
+       plt.scatter(row['Polarity'], row['Subjectivity'], color = 'green')   
+    elif row['Analysis'] == 'Negative':
+         plt.scatter(row['Polarity'], row['Subjectivity'], color = 'red') 
+    elif row['Analysis'] == 'Neutral':   
+          plt.scatter(row['Polarity'], row['Subjectivity'], color = 'yellow')
+            
+sns.set_style('whitegrid')             
 plt.title("Sentiment analysis")
 plt.xlabel("Polarity")
 plt.ylabel("Subjectivity")
