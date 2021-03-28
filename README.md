@@ -17,4 +17,13 @@ Textblob returns two properties polarity and subjectivity.
 1. Polarity is float which lies in the range of [-1,1] where 1 means positive statement and -1 means a negative statement. 
 2. subjectivity refers that mostly it is a public opinion and not a factual information.Subjectivity is also a float which lies in the range of [0,1].
 
+# Dependencies:
+
+*   numpy (https://www.numpy.org/)
+*   pandas (https://pandas.pydata.org/)
+*   Regular expressions(re) (https://docs.python.org/3/library/re.html)
+*   matplotlib (https://matplotlib.org/)
+*   seaborn (https://seaborn.pydata.org/)
+*   tweepy (https://www.tweepy.org/)    
+*   textblob (https://textblob.readthedocs.io/en/dev/)
 
