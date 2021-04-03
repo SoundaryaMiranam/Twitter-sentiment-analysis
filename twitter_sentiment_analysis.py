@@ -4,6 +4,7 @@ pip install textblob
 
 import pandas as pd
 import re
+import datetime
 from wordcloud import WordCloud 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -29,8 +30,9 @@ try:
 except: 
     print("Error: Authentication Failed")
 
-#Extracting 1000 tweets from a subject "Lockdown"
-corpus_tweets = api.search("lockdown", count=1000, lang ="en", tweet_mode = "extended")
+ #Extracting 200 tweets from a subject "Lockdown"
+date_since = (datetime.datetime.now() - datetime.timedelta(days=10)).date()
+corpus_tweets = api.search("Lockdown", count=200, lang ="en",since = date_since, tweet_mode = "extended")
 
 #print 5 tweets on this subject
 i = 1
@@ -39,8 +41,9 @@ for tweet in corpus_tweets[0:5]:
     print(str(i) + ')' + tweet.full_text  + '\n')
     i = i+1
 
-#Creating adataframe 
-df = pd.DataFrame([tweet.full_text for tweet in corpus_tweets] , columns=['Tweets'])
+#Creating a dataframe 
+df =  pd.DataFrame([[tweet.user.screen_name,tweet.user.location,tweet.full_text]for tweet in corpus_tweets] , 
+                             columns=['user','location','Tweets'])
 df.head()
 
 #creating function to clean the tweets
